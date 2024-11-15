@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Stock Market Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Form Elements */
+      label {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 5px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 class="form-heading">Open Demat Account</h2>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <!-- Hidden Input for Form Identification -->
+        <input type="hidden" name="form_type" value="demat_account" />
+        <!-- Fieldset with Legend for Personal Information -->
+        <fieldset class="field">
+          <legend class="leg">Personal Information</legend>
+          <label for="name">Full Name:</label>
+          <input
+            class="input1"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+
+          <label for="email">Email Address:</label>
+          <input
+            class="input1"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="dob">Date of Birth:</label>
+          <input class="input1" type="date" id="dob" name="dob" required />
+
+          <label for="phone">Phone Number:</label>
+          <input
+            class="input1"
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+
+          <label for="profile-color">Profile Theme Color:</label>
+          <input
+            class="input1"
+            type="color"
+            id="profile-color"
+            name="profile-color"
+          />
+        </fieldset>
+
+        <!-- Fieldset with Legend for Investment Preferences -->
+        <fieldset class="field">
+          <legend class="leg">Investment Preferences</legend>
+
+          <!-- Investment Amount -->
+          <label for="investment">Investment Amount (₹):</label>
+          <input
+            class="input1"
+            type="number"
+            id="investment"
+            name="investment"
+            placeholder="Enter investment amount"
+            min="0"
+            required
+          />
+
+          <label for="password">Account Password:</label>
+          <input
+            class="input1"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a password"
+            required
+          />
+
+          <label for="investment-start">Investment Start Month:</label>
+          <input
+            class="input1"
+            type="month"
+            id="investment-start"
+            name="investment-start"
+          />
+
+          <label for="next-investment">Next Investment Date:</label>
+          <input
+            class="input1"
+            type="week"
+            id="next-investment"
+            name="next-investment"
+          />
+
+          <label for="risk-level">Risk Level:</label>
+          <input
+            class="input1"
+            type="range"
+            id="risk-level"
+            name="risk-level"
+            min="1"
+            max="5"
+            value="3"
+          />
+
+          <!-- Risk Tolerance -->
+          <label>Risk Tolerance:</label>
+          <div class="form-group-inline">
+            <label><input type="radio" name="risk" value="low" /> Low</label>
+            <label
+              ><input type="radio" name="risk" value="medium" /> Medium</label
+            >
+            <label><input type="radio" name="risk" value="high" /> High</label>
+          </div>
+        </fieldset>
+
+        <!-- Fieldset with Legend for Market Interests -->
+        <fieldset class="field">
+          <legend class="leg">Documents and Preferences</legend>
+
+          <label for="proof-upload">Upload Proof of Identity:</label>
+          <input
+            class="input1"
+            type="file"
+            multiple
+            id="proof-upload"
+            name="proof-upload"
+            accept=".jpg, .jpeg, .png, .pdf"
+          />
+          <!-- accept=audio/* or image/* or video/*  -->
+
+          <label for="broker-platform">Preferred Trading Platform:</label>
+          <input
+            class="input1"
+            type="search"
+            id="broker-platform"
+            name="broker-platform"
+            list="platforms"
+            placeholder="Type or select"
+          />
+
+          <label for="market-info">Market Information URL:</label>
+          <input
+            class="input1"
+            type="url"
+            id="market-info"
+            name="market-info"
+            placeholder="https://example.com"
+          />
+          <label for="market-opening">Market Opening Time:</label>
+          <input
+            class="input1"
+            type="time"
+            id="market-opening"
+            name="market-opening"
+          />
+
+          <!-- Markets of Interest -->
+          <label>Markets of Interest:</label>
+          <div class="form-group-inline">
+            <label
+              ><input
+                type="checkbox"
+                name="market[]"
+                value="stocks"
+                class="input2"
+              />
+              Stocks</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="market[]"
+                value="MF"
+                class="input2"
+              />
+              Mutual Funds</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="market[]"
+                value="SIP"
+                class="input2"
+              />
+              SIPs</label
+            >
+          </div>
+
+          <!-- Preferred Stock Sector with Optgroup -->
+          <label for="sector">Preferred Stock:</label>
+          <select id="sector" name="sector" class="input1">
+            <option>Please Select a Stock</option>
+            <optgroup label="Information Technology">
+              <option>TCS</option>
+              <option>Infosys</option>
+              <option>Wipro</option>
+              <option>HCL Technologies</option>
+              <option>Tech Mahindra</option>
+              <option>L&T Infotech</option>
+            </optgroup>
+            <optgroup label="Financial Services">
+              <option>HDFC Bank</option>
+              <option>ICICI Bank</option>
+              <option>State Bank of India (SBI)</option>
+              <option>Kotak Mahindra Bank</option>
+              <option>Bajaj Finance</option>
+              <option>Axis Bank</option>
+            </optgroup>
+            <optgroup label="Healthcare and Pharmaceuticals">
+              <option>Sun Pharma</option>
+              <option>Dr. Reddy's Laboratories</option>
+              <option>Cipla</option>
+              <option>Apollo Hospitals</option>
+              <option>Lupin</option>
+              <option>Biocon</option>
+            </optgroup>
+            <optgroup label="Consumer Goods (FMCG)">
+              <option>Hindustan Unilever</option>
+              <option>ITC</option>
+              <option>Nestle India</option>
+              <option>Dabur</option>
+              <option>Godrej Consumer</option>
+              <option>Britannia</option>
+            </optgroup>
+            <optgroup label="Automobile and Auto Ancillaries">
+              <option>Maruti Suzuki</option>
+              <option>Tata Motors</option>
+              <option>Mahindra &amp; Mahindra</option>
+              <option>Hero MotoCorp</option>
+              <option>Eicher Motors</option>
+              <option>Bajaj Auto</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <!-- Preferred Trading Platform with Datalist -->
+        <label for="platform">Preferred Stockbroking Platform:</label>
+        <input
+          class="input1"
+          type="text"
+          id="platform"
+          name="platform"
+          list="platforms"
+          placeholder="Choose or type platform"
+        />
+        <datalist id="platforms">
+          <option value="Zerodha"></option>
+          <option value="Upstox"></option>
+          <option value="Angel One (formerly Angel Broking)"></option>
+          <option value="ICICI Direct"></option>
+          <option value="Groww"></option>
+          <option value="HDFC Securities"></option>
+          <option value="Sharekhan"></option>
+          <option value="Kotak Securities"></option>
+          <option value="Motilal Oswal"></option>
+          <option value="5Paisa"></option>
+        </datalist>
+
+        <!-- Datalist for Stock Symbols -->
+        <label for="stock">Stock Symbol:</label>
+        <input
+          class="input1"
+          type="text"
+          id="stock"
+          name="stock"
+          list="stocks"
+          placeholder="Choose or type symbol"
+        />
+        <datalist id="stocks">
+          <option value="TCS"></option>
+          <option value="INFY"></option>
+          <option value="WIPRO"></option>
+          <option value="HCLTECH"></option>
+          <option value="TECHM"></option>
+          <option value="LTI"></option>
+          <option value="HDFCBANK"></option>
+          <option value="ICICIBANK"></option>
+          <option value="SBIN"></option>
+          <option value="KOTAKBANK"></option>
+          <option value="BAJFINANCE"></option>
+          <option value="AXISBANK"></option>
+          <option value="SUNPHARMA"></option>
+          <option value="DRREDDY"></option>
+          <option value="CIPLA"></option>
+          <option value="APOLLOHOSP"></option>
+          <option value="LUPIN"></option>
+          <option value="BIOCON"></option>
+          <option value="HINDUNILVR"></option>
+          <option value="ITC"></option>
+          <option value="NESTLEIND"></option>
+          <option value="DABUR"></option>
+          <option value="GODREJCP"></option>
+          <option value="BRITANNIA"></option>
+          <option value="MARUTI"></option>
+          <option value="TATAMOTORS"></option>
+          <option value="M&M"></option>
+          <option value="HEROMOTOCO"></option>
+          <option value="EICHERMOT"></option>
+          <option value="BAJAJ-AUTO"></option>
+        </datalist>
+
+        <label for="trade-date">Next Trade Date:</label>
+        <input
+          class="input1"
+          type="datetime-local"
+          id="trade-date"
+          name="trade-date"
+        />
+
+        <!-- Comments/Additional Info -->
+        <label for="comments">Additional Comments:</label>
+        <textarea
+          class="input1"
+          id="comments"
+          name="comments"
+          rows="4"
+          placeholder="Any additional information..."
+        ></textarea>
+
+        <!-- Image Input Button (e.g., for Form Submission) -->
+        <fieldset class="field">
+          <legend class="leg">Confirmation</legend>
+
+          <label for="submit-image">Submit Your Form:</label>
+          <input
+            style="width: 35%"
+            type="image"
+            src="https://www.baldwinpl.org/wp-content/uploads/2018/04/Submit-Button-Forms.jpg"
+            alt="Submit Form Image"
+            title="Submit form using image button"
+          />
+        </fieldset>
+
+        <!-- Standard Submit and Reset Buttons -->
+        <input type="submit" value="Submit Form" class="submit-btn" />
+        <input type="reset" value="Reset Form" class="reset-btn" />
+
+        <!-- Buttons -->
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="reset" class="reset-btn">Reset</button>
+        <button
+          type="button"
+          class="additional-btn"
+          onclick="alert(('For more information, please visit our FAQ section.'))"
+          title="Click to know more"
+        >
+          More Info
+        </button>
+        <input
+          type="button"
+          value="Help"
+          class="additional-btn"
+          onclick="alert('For assistance, please contact support.')"
+          title="Click here"
+        />
+      </form>
+    </div>
+  </body>
+</html>
